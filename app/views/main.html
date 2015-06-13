@@ -1,0 +1,86 @@
+<section id='displayLinks' ng-controller='MainCtrl'>
+	
+	
+
+	<h2 id="titleHead"class="section-heading text-center">EasyFaves - Favorites on the go!</h2>	
+	<div id="new-pane-button">
+		<button type="button" class="btn btn-default" ng-click="open()">
+			<span class="glyphicon glyphicon-plus"></span>  
+		</button>							
+	</div>
+	<h3 class="section-heading text-center">Your Links</h3>	
+	<div id="display-pane">
+		<div ng-repeat="sectionPaneItem in sectionPane">
+			<div class="col-md-3 col-md-offset-1">
+				<!-- Create a Panel for a pane -->
+				<div class="panel panel-info">
+					<!-- Panel heading -->
+					<div class="panel-heading">
+						<!-- The below div is to display a form when "display" is true and hide when "display" is false -->
+						<div class="check-element animate-show" ng-show="display">
+							<!-- ngsubmit calls the function editName and passes the current object to the function and 
+							the function edits the name and resets the value of 'display to hide the form' -->
+							<form name="paneName" ng-submit="editPaneTitle(sectionPaneItem)" novalidate> <!-- add novalidate to aditis code --> 
+								<input type="text" name="paneName" ng-model="sectionPaneItem.sectionTitle" required>
+								<button type="submit" class="btn btn-primary">
+									<span id="url-button-ok" class="glyphicon glyphicon-ok"></span>
+								</button>								
+							</form>
+						</div>
+						<h3 id="pane-title" class="panel-title">{{sectionPaneItem.sectionTitle}}</h3>
+						<button id="pane-button" class="btn btn-info" type="button" ng-click="toggleDisplay()">
+							<span class="glyphicon glyphicon-pencil"></span>
+						</button>
+						<button id="pane-button-remove" class="btn btn-danger" type="button" ng-click="removePane($index)">
+							<span class="glyphicon glyphicon-remove"></span>
+						</button>
+					</div>
+					<div class="panel-body">												
+							<div ng-repeat="linkItem in sectionPaneItem.urlProperties">
+								<!-- <input class ='col-md-1' type="text"> -->
+								
+								<div class='col-xs-12'>
+									<!-- #myModal -->
+								<div id="url-item">	
+										<a ng-href="{{linkItem.url}}">{{linkItem.title}}</a>
+										<!-- <input id="label" ng-model = "string"></input> -->
+									
+									<button id="url-button" class="btn btn-danger" type="button" ng-click="removeUrl($index, $parent.$index)">
+									<span class="glyphicon glyphicon-remove"></span>
+									</button>
+
+									<button id="url-button-toggle" class="btn btn-success" type="button" ng-click="toggleDisplay()">
+									<span class="glyphicon glyphicon-chevron-right"></span>
+									</button>
+												
+								</div>
+							</div>
+						</div>						
+					</div>
+				</div>	
+			</div>	
+		</div>
+		
+		
+		<!-- <div class="check-element animate-show" ng-show="displaycreatepane">
+			<div id="new-pane-form">
+				<form name="newPane" ng-submit="createPane()" novalidate>  
+					<input type="text" name="paneName" placeholder="Enter the title of the pane"required>
+					<input type="text" name="urlName" placeholder="Paste the URL of your choice"required>
+					<input type="text" name="urlName" placeholder="Paste the URL of your choice">
+					<button type="submit" class="btn btn-primary">
+						<span class="glyphicon glyphicon-ok"></span>
+					</button>
+				</form>
+			</div>
+		</div> -->
+
+
+			<!-- </form> -->
+  		</div>
+	
+
+	</div><!-- container -->
+</section>
+
+

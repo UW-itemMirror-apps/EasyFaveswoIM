@@ -1,0 +1,84 @@
+<!-- 				<div class="modal-dialog">
+	    			<div class="modal-content">
+	    			<form name="newPane" ng-submit="createPane(newPane,sectionPane)" novalidate>
+	      				<div class="modal-header">
+		        			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        			<h3 class="modal-title" id="myModalLabel">Create a New Pane</h3>
+	      				</div>
+	      				<div class="modal-body">
+	      					<div class="form-group">
+	      						<h4>Pane Name</h4>	      							      				 
+								<input ng-model="newPane.sectionTitle" type="text" name="paneName" placeholder="Enter the title of the pane" class = 'form-control' required>
+							</div>
+
+							<!stuff for new link choice -->
+							<!-- <div  data-ng-repeat="newlink in newlinks"> -->
+  							<!-- <label for="choice" ng-show="showChoiceLabel(choice)">Choices</label> -->
+  							
+  							<!-- <div class="form-group">
+								<input ng-model="newlink.title" type="text" name="label" placeholder="Enter the label for URL" class = 'form-control' required>
+								<input ng-model="newlink.url" type="text" name="url" placeholder="Paste the URL of your choice" class = 'form-control' required>
+							</div>
+							</div>  -->
+							
+
+							<!-- <div class="form-group">
+								<h4>URL Details</h4><div><button type="submit" class="btn btn-primary">+</button></div>
+								<input ng-model="newPane.urlProperties[0].title" type="text" name="label" placeholder="Enter the label for URL" class = 'form-control' required>
+								<input ng-model="newPane.urlProperties[0].url" type="text" name="url" placeholder="Paste the URL of your choice" class = 'form-control' required>
+							</div>
+							<div class="form-group">
+								<h4>URL Details</h4>	
+								<input ng-model="newPane.urlProperties[1].title" type="text" name="label" placeholder="Enter the label for URL" class = 'form-control'>
+								<input ng-model="newPane.urlProperties[1].url" type="text" name="url" placeholder="Paste the URL of your choice" class = 'form-control'>
+							</div> -->							
+						    <!-- <div class="modal-footer">
+				            <button class="btn btn-primary" ng-click="ok()">OK</button>
+				            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+				        </div>
+					    </div>
+					</form>
+	    			</div> -->
+
+	    			<div class="modal-header">
+	    				<h3 class="modal-title">Create a new pane</h3>
+	    			</div>
+	    			<div class="modal-body">
+	    				<form name="createPane" novalidate class="simple-form">
+						<div class="form-group">
+	      					<h4>Pane Name</h4>	      							      				 
+							<input ng-model="newPane.sectionTitle" type="text" name="paneName" placeholder="Enter the title of the pane" class = 'form-control' required>
+						</div> 
+						<div class="form-group">
+							<h4>URL Details</h4>							
+							<fieldset  data-ng-repeat="newUrlPropertiesItem in newUrlProps">
+							<div class="form-group">
+    							<input ng-model="newUrlPropertiesItem.title" type="text" name="label" placeholder="Enter the label for URL" class = 'form-control'>
+								<input ng-model="newUrlPropertiesItem.url" type="text" name="url" placeholder="Paste the URL of your choice" class = 'form-control'>
+							</div>
+
+								<button class="remove btn btn-danger" ng-show="$last" ng-click="removeChoice()">
+									<span class="glyphicon glyphicon-remove"></span>
+								</button>
+							</fieldset>
+							<button class="addFields btn btn-success" ng-click="addFields()">
+								<span class="glyphicon glyphicon-plus"></span>
+							</button>
+						</div>
+						   
+						
+
+
+	    			</div>
+	    			<div class="modal-footer">
+	    				<button class="btn btn-primary" ng-click="createNewPane(newPane, newUrlProps)" type="submit" value="submit" >Create Pane</button>
+	    				<button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+	    			</div>
+	    			</form>
+
+	
+   
+       
+ 
+
+	  	
